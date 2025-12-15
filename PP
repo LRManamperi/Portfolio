@@ -1,0 +1,323 @@
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code, Briefcase, GraduationCap, Award, Users } from 'lucide-react';
+
+export default function Portfolio() {
+  const [activeSection, setActiveSection] = useState('about');
+
+  const skills = {
+    languages: ['Python', 'Kotlin', 'JavaScript', 'Go', 'Java', 'C', 'C++'],
+    frontend: ['React','NextJS' 'React Native', 'HTML/CSS', 'Material-UI', 'Tailwind'],
+    backend: ['FastAPI', 'Flask', 'Node.js', 'Spring Boot'],
+    databases: ['MongoDB', 'PostgreSQL', 'MySQL', 'SQLite', 'Weaviate'],
+    tools: ['Docker', 'Git', 'AWS', 'Google Cloud', 'OpenCV', 'PyTorch']
+  };
+
+  const projects = [
+    {
+      title: 'Crowdio',
+      description: 'Mobile-based distributed computing platform leveraging idle device power for micro-task processing',
+      tech: ['Kotlin', 'FastAPI', 'React', 'SQLite'],
+      features: ['Parallel task distribution', 'Real-time sync with WebSockets', 'Task verification system']
+    },
+    {
+      title: 'DocXtract',
+      description: 'Python library for extracting tables and charts from PDFs using hybrid ML and CV techniques',
+      tech: ['Python', 'OpenCV', 'PyTorch', 'Langchain'],
+      features: ['Multiple detection strategies', 'Modular architecture', 'Camelot-compatible API']
+    },
+    {
+      title: 'Train Booking System',
+      description: 'Full-stack booking platform with admin dashboard and AI chatbot integration',
+      tech: ['React', 'React Native', 'Node.js', 'MongoDB'],
+      features: ['Intelligent chatbot with Wit.ai', 'Admin analytics dashboard', 'Real-time booking management']
+    },
+    {
+      title: 'CalmMind',
+      description: 'Mental health support platform with NLP-powered crisis detection',
+      tech: ['Flask', 'NLTK', 'Python', 'JavaScript'],
+      features: ['Intent recognition', 'Crisis phrase detection', 'Guided response system']
+    },
+    {
+      title: 'AlbumHub',
+      description: 'Robust REST API with containerized deployment for album management',
+      tech: ['Go', 'React', 'PostgreSQL', 'Docker'],
+      features: ['RESTful CRUD operations', 'Comprehensive testing', 'Docker containerization']
+    }
+  ];
+
+  const experience = {
+    company: 'NCINGA (Pvt) Ltd',
+    role: 'Software Engineering Intern',
+    period: 'Dec 2024 – June 2025',
+    location: 'Colombo, Sri Lanka',
+    highlights: [
+      'Enterprise-level microservices and cloud-native architectures',
+      'Spring Boot, React, MongoDB, MySQL, and API integrations',
+      'ISVA integration, SCIM, OIDC, and SAML 2.0 federation'
+    ]
+  };
+
+  const certifications = [
+    'Kaggle Certifications',
+    'Google Cloud Data Analytics',
+    'Fortinet Certifications',
+    'Coursera – Generative AI with LLMs',
+    'AWS – Well-Architected Proficient',
+    'Nvidia – Building RAG agents with LLMs'
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-purple-500/20">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            LM
+          </h1>
+          <div className="flex gap-6">
+            {['about', 'skills', 'experience', 'projects'].map((section) => (
+              <button
+                key={section}
+                onClick={() => setActiveSection(section)}
+                className={`capitalize transition-colors ${
+                  activeSection === section
+                    ? 'text-purple-400'
+                    : 'text-gray-300 hover:text-purple-300'
+                }`}
+              >
+                {section}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* About Tab */}
+      {activeSection === 'about' && (
+        <>
+          {/* Hero Section */}
+          <section className="pt-32 pb-20 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                {/* Profile Image Placeholder */}
+                <div className="w-64 h-64 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-2xl">
+                  <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-6xl font-bold text-purple-300">
+                    LM
+                  </div>
+                </div>
+
+                {/* Hero Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                    Lakshani Manamperi
+                  </h1>
+                  <p className="text-2xl text-purple-300 mb-6">
+                    Computer Science & Engineering Undergraduate
+                  </p>
+                  <p className="text-lg text-gray-300 mb-8 max-w-2xl">
+                    Passionate about software development, process design, and modern engineering practices. 
+                    Fast learner embracing innovation with hands-on experience in full-stack development, 
+                    mobile engineering, cloud, and AI solutions.
+                  </p>
+
+                  {/* Contact Links */}
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="mailto:lakshani.21@cse.mrt.ac.lk" className="flex items-center gap-2 bg-purple-600/20 hover:bg-purple-600/30 px-4 py-2 rounded-lg transition-colors border border-purple-500/30">
+                      <Mail size={18} />
+                      <span>Email</span>
+                    </a>
+                    <a href="https://linkedin.com/in/lakshani/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-purple-600/20 hover:bg-purple-600/30 px-4 py-2 rounded-lg transition-colors border border-purple-500/30">
+                      <Linkedin size={18} />
+                      <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/LRManamperi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-purple-600/20 hover:bg-purple-600/30 px-4 py-2 rounded-lg transition-colors border border-purple-500/30">
+                      <Github size={18} />
+                      <span>GitHub</span>
+                    </a>
+                    <div className="flex items-center gap-2 bg-purple-600/20 px-4 py-2 rounded-lg border border-purple-500/30">
+                      <Phone size={18} />
+                      <span>+94 70 184 4694</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Education */}
+          <section className="py-16 px-6 bg-slate-900/50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <GraduationCap className="text-purple-400" />
+                Education
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+                  <h3 className="text-xl font-bold text-purple-300 mb-2">University of Moratuwa</h3>
+                  <p className="text-gray-300 mb-2">B.Sc. (Hons) Engineering — Computer Science & Engineering</p>
+                  <p className="text-gray-400">2022 – Present</p>
+                </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+                  <h3 className="text-xl font-bold text-purple-300 mb-2">Badulla Central College</h3>
+                  <p className="text-gray-300 mb-2">Secondary Education (2012 – 2020)</p>
+                  <p className="text-sm text-gray-400">• G.C.E. A/L (2020): 3As — Island Rank 220</p>
+                  <p className="text-sm text-gray-400">• G.C.E. O/L (2017): 9As — District Rank 2</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Certifications & Achievements */}
+          <section className="py-16 px-6">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Award className="text-purple-400" />
+                Certifications & Activities
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold text-purple-300 mb-4">Certifications</h3>
+                  <ul className="space-y-2">
+                    {certifications.map((cert, idx) => (
+                      <li key={idx} className="text-gray-300 flex items-center gap-2">
+                        <span className="text-purple-400">✓</span>
+                        {cert}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold text-purple-300 mb-4">Competitions & Volunteering</h3>
+                  <ul className="space-y-2">
+                    <li className="text-gray-300 flex items-center gap-2">
+                      <span className="text-purple-400">▸</span>
+                      Hackathon Xtreme 2023 - IESL
+                    </li>
+                    <li className="text-gray-300 flex items-center gap-2">
+                      <span className="text-purple-400">▸</span>
+                      Devthon 2024 - Leo Club UoM
+                    </li>
+                    <li className="text-gray-300 flex items-center gap-2">
+                      <span className="text-purple-400">▸</span>
+                      Techno Exhibition - Department Rep
+                    </li>
+                    <li className="text-gray-300 flex items-center gap-2">
+                      <span className="text-purple-400">▸</span>
+                      EXMO Exhibition - Organizing Committee
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Skills Tab */}
+      {activeSection === 'skills' && (
+        <section className="pt-32 pb-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
+              <Code className="text-purple-400" />
+              Skills & Technologies
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Object.entries(skills).map(([category, items]) => (
+                <div key={category} className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
+                  <h3 className="text-lg font-bold text-purple-300 mb-4 capitalize">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((skill) => (
+                      <span key={skill} className="bg-purple-600/20 px-3 py-1 rounded-full text-sm border border-purple-500/30">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Experience Tab */}
+      {activeSection === 'experience' && (
+        <section className="pt-32 pb-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
+              <Briefcase className="text-purple-400" />
+              Experience
+            </h2>
+            <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-purple-300">{experience.role}</h3>
+                  <p className="text-xl text-gray-300">{experience.company}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-400">{experience.period}</p>
+                  <p className="text-gray-400">{experience.location}</p>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                {experience.highlights.map((highlight, idx) => (
+                  <li key={idx} className="text-gray-300 flex items-start gap-3">
+                    <span className="text-purple-400 text-xl mt-1">▸</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Projects Tab */}
+      {activeSection === 'projects' && (
+        <section className="pt-32 pb-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
+              <Code className="text-purple-400" />
+              Featured Projects
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {projects.map((project, idx) => (
+                <div key={idx} className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
+                  <h3 className="text-xl font-bold text-purple-300 mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="bg-purple-600/20 px-2 py-1 rounded text-xs border border-purple-500/30">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className="space-y-1">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
+                        <span className="text-purple-400 mt-1">▸</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-purple-500/20">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-400 mb-2">© 2024 Lakshani Manamperi. All rights reserved.</p>
+          <div className="flex justify-center gap-4 text-sm text-gray-500">
+            <span className="flex items-center gap-1">
+              <MapPin size={14} />
+              Badulla, Sri Lanka
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
